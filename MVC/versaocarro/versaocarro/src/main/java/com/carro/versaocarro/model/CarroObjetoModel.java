@@ -1,7 +1,16 @@
 package com.carro.versaocarro.model;
 
-public class CarroModel {
+import javax.persistence.*;
 
+
+@Entity
+@Table (name = "caranga")
+
+public class CarroObjetoModel {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idCarro;
     private String marca;
     private String modelo;
     private String ano;
@@ -9,14 +18,29 @@ public class CarroModel {
     private String chassi;
 
 
-//    public CarroModel(String marca, String modelo, String ano, String cor, String chassi) {
-//        this.marca = marca;
-//        this.modelo = modelo;
-//        this.ano = ano;
-//        this.cor = cor;
-//        this.chassi = chassi;
-//    }
 
+    public CarroObjetoModel(Long idCarro, String marca, String modelo, String ano, String cor, String chassi) {
+        this.idCarro = idCarro;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.ano = ano;
+        this.cor = cor;
+        this.chassi = chassi;
+    }
+
+    public CarroObjetoModel(){
+
+    }
+
+
+    public Long getIdCarro() {
+        return idCarro;
+    }
+
+    //Postman nao precisa ter o Set de idCarro ativo; na resposta precisa que o getIcarro esteja ativo para mostrar sequnciamento do Id
+//    public void setIdCarro(){
+//        this.idCarro = idCarro;
+//    }
     public String getMarca() {
         return marca;
     }

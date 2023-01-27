@@ -1,4 +1,4 @@
-package com.carro.versaocarro.CarroController;
+package com.carro.versaocarro.controller;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
