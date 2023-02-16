@@ -1,6 +1,7 @@
 package com.carro.versaocarro.controller;
 
 
+import com.carro.versaocarro.model.CarroDto;
 import com.carro.versaocarro.model.CarroObjetoModel;
 import com.carro.versaocarro.service.CarroObjetoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ public class CarroObjetoController {
 
     //Qdo quero trazer um objeto, na declaração do metodo, identifico qual Classe gera o objeto
     //Na classe que assina o metodo, tem que ter Gets e Sets; assim o metodo pode bater nas variaveis que la estao.
-    //aqui nao persiste no banco, pois retorno somente pega campos da model, preenche e nao salva dado em memoria.
+    //aqui nao persiste no banco, pois retorno somente pega campos da model, preenche e nao salva dado em banco de dados.
     @PostMapping (path = "/completo")
     public CarroObjetoModel postCarroNovo(@RequestBody CarroObjetoModel carroModel){
         return carroModel;
@@ -25,8 +26,8 @@ public class CarroObjetoController {
     private CarroObjetoService carroObjetoService;
 
     @PostMapping (path = "/salvando")
-    public CarroObjetoModel postCarroNovinho(@RequestBody CarroObjetoModel carroModel){
-        CarroObjetoModel carro = carroObjetoService.postCadastro(carroModel);
+    public CarroDto postCarroNovinho(@RequestBody CarroDto carroDto){
+        CarroDto carro = carroObjetoService.postCadastro(carroDto);
         return carro;
     }
 
@@ -40,10 +41,5 @@ public class CarroObjetoController {
         carroObjetoService.deleteCarro(id);
 
     }
-
-
-
-
-
 
 }
